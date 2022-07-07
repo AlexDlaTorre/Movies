@@ -3,14 +3,15 @@ package com.example.movies.ui
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.movies.GetMoviesUseCase
+import com.example.movies.usecase.GetMoviesUseCase
 import com.example.movies.model.ResultsModel
+import com.example.movies.usecase.GetNowPlayingUseCase
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class HomeViewModel(
-    private val getMoviesUseCase: GetMoviesUseCase = GetMoviesUseCase(),
+   val getMoviesUseCase: GetMoviesUseCase = GetMoviesUseCase(),
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : ViewModel() {
 
@@ -22,6 +23,8 @@ class HomeViewModel(
             if (response.isSuccessful) {
                 movieModel.postValue(response.body())
             }
+
         }
     }
+
 }

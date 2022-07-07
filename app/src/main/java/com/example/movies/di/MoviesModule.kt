@@ -1,7 +1,8 @@
 package com.example.movies.di
 
-import com.example.movies.GetMoviesUseCase
+import com.example.movies.usecase.GetMoviesUseCase
 import com.example.movies.ui.HomeViewModel
+import com.example.movies.usecase.GetNowPlayingUseCase
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
 import org.koin.dsl.module

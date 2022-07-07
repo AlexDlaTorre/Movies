@@ -1,16 +1,22 @@
 package com.example.movies
 
-import android.icu.util.TimeUnit.values
+import com.example.movies.extensions.CoroutineTestExtension
+import com.example.movies.extensions.CoroutineTestExtensionWithMockDispatchers
+import com.example.movies.extensions.InstantExecutorExtension
 import com.example.movies.model.MovieModel
 import com.example.movies.model.ResultsModel
 import com.example.movies.ui.HomeViewModel
+import com.example.movies.usecase.GetMoviesUseCase
+import io.mockk.MockKAnnotations
 import io.mockk.coEvery
-import io.mockk.every
+import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
-import io.mockk.mockk
-import org.junit.Assert.*
+import io.mockk.junit5.MockKExtension
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
+import org.junit.jupiter.api.extension.ExtendWith
 import retrofit2.Response
 
 /**
@@ -18,9 +24,18 @@ import retrofit2.Response
  *
  * See [testing documentation](http://d.android.com/tools/testing).
  */
+
+@ExperimentalCoroutinesApi
+@ExtendWith(
+    MockKExtension::class,
+    InstantExecutorExtension::class,
+    CoroutineTestExtension::class,
+    CoroutineTestExtensionWithMockDispatchers::class,
+)
 class ExampleUnitTest {
 
-    @MockK
+
+    @InjectMockKs
     lateinit var viewModel: HomeViewModel
 
     @MockK
@@ -28,22 +43,33 @@ class ExampleUnitTest {
 
     @Before
     fun setUp() {
-        viewModel = HomeViewModel(useCase)
+        MockKAnnotations.init(this)
     }
 
     @Test
-    fun fetchNowPlayingHappyPath() {
+    fun `fetch Now Playing Happy Path`() {
         //GIVEN
-        val case = mockk<GetMoviesUseCase>(){
-            coEvery {(useCase.getMoviesListInfo())} returns (ResultsModel(0, listOf(MovieModel(15,))))
-        }
+        val response = Response.success(
+            200,
+            ResultsModel(
+                1,
+                listOf(
+                    MovieModel(
+                        297761,
+                        "/lFSSLTlFozwpaGlO31OoUeirBgQ.jpg",
+                        "From DC Comics",
+                        "Suicide Squad",
+                        48.261451,
+                        5.91
+                    )
+                )
+            )
+        )
+        coEvery { (useCase.getMoviesListInfo()) } returns response
+
         //WHEN
         viewModel.getMovies()
         //THEN
         assertEquals(1, viewModel.movieModel.value?.results?.size)
-    }
-
-    private fun every(stubBlock: Response<ResultsModel>): Any {
-
     }
 }

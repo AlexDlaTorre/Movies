@@ -67,4 +67,19 @@ dependencies {
     //MockK
     testImplementation "io.mockk:mockk:1.12.4"
     androidTestImplementation "io.mockk:mockk-android:1.12.4"
+
+    def junit_jupiter_version = "5.3.2"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junit_jupiter_version"
+    testImplementation "org.junit.jupiter:junit-jupiter-params:$junit_jupiter_version"
+    testImplementation 'org.junit:junit-bom:5.7.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    testImplementation  "org.junit.jupiter:junit-jupiter-engine:5.7.0"
+    testImplementation  "org.junit.jupiter:junit-jupiter-params:5.7.0'"
+    testImplementation "org.junit.vintage:junit-vintage-engine:5.7.0'"
+    testImplementation "junit:junit:4.13.2"
+    testImplementation "org.mockito:mockito-core:3.9.0"
+    testImplementation "io.mockk:mockk:1.12.4"
+    testImplementation "org.mockito.kotlin:mockito-kotlin:3.2.0"
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
 }
