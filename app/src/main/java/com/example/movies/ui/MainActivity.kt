@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movies.adapter.MovieAdapter
 import com.example.movies.adapter.PosterAdapter
 import com.example.movies.databinding.ActivityMainBinding
-import com.example.movies.model.MovieProvider.initRecyclerView
 import com.example.movies.model.ResultsModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -23,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         observers()
     }
 
-     fun observers() {
+    private fun observers() {
         homeViewModel.movieModel.observe(this, ::initRecyclerView)
         homeViewModel.getMovies()
     }
@@ -36,9 +35,9 @@ class MainActivity : AppCompatActivity() {
         binding.rvPosters.adapter = PosterAdapter(movieList.results)
     }
 
-   /* private fun initRecyclerView2(movieList: ResultsModel) {
-        binding.rvPosters.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        binding.rvPosters.adapter = PosterAdapter(movieList.results)
-    }*/
+    /* private fun initRecyclerView2(movieList: ResultsModel) {
+         binding.rvPosters.layoutManager =
+             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+         binding.rvPosters.adapter = PosterAdapter(movieList.results)
+     }*/
 }

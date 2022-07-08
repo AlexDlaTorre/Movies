@@ -13,8 +13,8 @@ data class MovieModel(
     val popularity: Double? = 0.0,
     val vote_average: Double? = 0.0,
     val release_date: String? = null,
-    @Transient
-    var release_date_detail: String? = "",
-    @Transient
-    var rate: Int = 0
+  //  @Transient
+  //  var release_date_detail: String? = "",
+  //  @Transient
+  //  var rate: Int = 0
 ) : Parcelable

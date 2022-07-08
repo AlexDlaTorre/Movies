@@ -42,44 +42,64 @@ dependencies {
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.junit:junit-bom:5.7.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    implementation 'com.android.databinding:viewbinding:7.2.1'
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
-    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1"
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0'
-    implementation 'com.github.bumptech.glide:glide:4.13.2'
-    implementation 'com.squareup.picasso:picasso:2.8'
-    implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
-    // Koin for Kotlin apps
-    implementation "io.insert-koin:koin-core:3.2.0"
-// Koin for Testing
-    testImplementation "io.insert-koin:koin-test:3.2.0"
-// Java Compatibility
-    implementation "io.insert-koin:koin-android-compat:3.2.0"
-// Jetpack WorkManager
-    implementation "io.insert-koin:koin-androidx-workmanager:3.2.0"
-// Navigation Graph
-    implementation "io.insert-koin:koin-androidx-navigation:3.2.0"
-    //MockK
-    testImplementation "io.mockk:mockk:1.12.4"
-    androidTestImplementation "io.mockk:mockk-android:1.12.4"
-
+    androidTestImplementation 'io.mockk:mockk-android:1.10.5'
+    //JUnit
     def junit_jupiter_version = "5.3.2"
     testImplementation "org.junit.jupiter:junit-jupiter-api:$junit_jupiter_version"
     testImplementation "org.junit.jupiter:junit-jupiter-params:$junit_jupiter_version"
-    testImplementation 'org.junit:junit-bom:5.7.0'
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-
-    testImplementation  "org.junit.jupiter:junit-jupiter-engine:5.7.0"
-    testImplementation  "org.junit.jupiter:junit-jupiter-params:5.7.0'"
-    testImplementation "org.junit.vintage:junit-vintage-engine:5.7.0'"
-    testImplementation "junit:junit:4.13.2"
-    testImplementation "org.mockito:mockito-core:3.9.0"
-    testImplementation "io.mockk:mockk:1.12.4"
-    testImplementation "org.mockito.kotlin:mockito-kotlin:3.2.0"
-    testImplementation "androidx.arch.core:core-testing:2.1.0"
+    //Mockito
+    def mockito_version = "2.19.0"
+    testImplementation "org.mockito:mockito-core:$mockito_version"
+    //MockK
+    testImplementation "io.mockk:mockk:1.10.5"
+    testImplementation "io.mockk:mockk-agent-jvm:1.10.5"
+    testImplementation 'android.arch.core:core-testing:1.1.1'
+    // Koin for Kotlin apps
+    implementation "io.insert-koin:koin-core:3.2.0"
+    // Koin for Testing
+    testImplementation "io.insert-koin:koin-test:3.2.0"
+    // Java Compatibility
+    implementation "io.insert-koin:koin-android-compat:3.2.0"
+    // Jetpack WorkManager
+    implementation "io.insert-koin:koin-androidx-workmanager:3.2.0"
+    // Navigation Graph
+    implementation "io.insert-koin:koin-androidx-navigation:3.2.0"
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
+    //Gson
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    //Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.0'
+    //LiveData
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.0'
+    //ViewModel
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0'
+    //Coil
+    implementation 'io.coil-kt:coil:1.4.0'
+    //Piccaso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    //Recycler
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    //UnitTest
+    implementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    implementation 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation 'org.junit.jupiter:junit-jupiter-params:5.7.0'
+    implementation 'org.junit.vintage:junit-vintage-engine:5.7.0'
+    implementation 'junit:junit:4.13.2'
+    implementation 'org.mockito:mockito-core:3.9.0'
+    implementation 'io.mockk:mockk:1.12.4'
+    implementation 'org.mockito.kotlin:mockito-kotlin:3.2.0'
+    implementation 'androidx.arch.core:core-testing:2.1.0'
+    //Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1'
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1")
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.0'
 }
